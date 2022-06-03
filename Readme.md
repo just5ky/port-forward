@@ -1,5 +1,5 @@
 # Port Forward
-![Docker Build](https://github.com/just5ky/port-forward/workflows/Docker/badge.svg) ![Docker Pulls](https://img.shields.io/docker/pulls/just5ky/port-forward) ![Docker Size](https://img.shields.io/docker/image-size/just5ky/port-forward?color=orange)
+![Docker Build](https://github.com/just5ky/port-forward/workflows/Docker/badge.svg) ![Docker Pulls](https://img.shields.io/docker/pulls/justsky/port-forward) ![Docker Size](https://img.shields.io/docker/image-size/justsky/port-forward?color=orange)
 
 
 ## Using docker
