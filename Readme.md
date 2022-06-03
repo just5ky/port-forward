@@ -2,7 +2,7 @@
 ![Docker Build](https://github.com/just5ky/port-forward/workflows/Docker/badge.svg) ![Docker Pulls](https://img.shields.io/docker/pulls/justsky/port-forward) ![Docker Size](https://img.shields.io/docker/image-size/justsky/port-forward?color=orange)
 
 
-## Using docker
+## Using docker run
 ```sh
 docker run -d --name port-forwarding --cap-add=NET_ADMIN -e TARGET_IP=192.168.1.100 -e TARGET_PORT=12345 -p 8123:8000 justsky/port-forward
 ```
