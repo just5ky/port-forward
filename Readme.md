@@ -4,7 +4,7 @@
 
 ## Using docker run
 ```sh
-docker run -d --name port-forwarding --cap-add=NET_ADMIN -e TARGET_IP=192.168.1.100 -e TARGET_PORT=12345 -p 8123:8000 justsky/port-forward
+docker run -d --name port-forwarding --cap-add=NET_ADMIN -e TARGET_IP=192.168.1.100 -e TARGET_PORT=12345 -p 8000:8000 justsky/port-forward
 ```
 
 ## Using docker-compose
@@ -18,10 +18,11 @@ services:
     environment:
       - TARGET_IP=192.168.1.100
       - TARGET_PORT=12345
+    user: root
     cap-add:
       - NET_ADMIN
     ports:
-      - 8123:8000
+      - 8000:8000
 ```
 
 ## Environmental variables
