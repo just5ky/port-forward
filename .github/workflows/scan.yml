@@ -43,7 +43,7 @@ jobs:
       run: docker pull ${{ secrets.DOCKERHUB_USERNAME }}/port-forward
       
     - name: Run the Anchore scan action itself with GitHub Advanced Security code scanning integration enabled
-      uses: anchore/scan-action@62370b53ab026f5d09b9fb43a7b5ec4b73c1a8e0
+      uses: anchore/scan-action@65161264d84bfeed55775e43bdbe5eb7c8a433fb
       with:
         image: "${{ secrets.DOCKERHUB_USERNAME }}/port-forward"
         acs-report-enable: true
