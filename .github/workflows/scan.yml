@@ -29,32 +29,6 @@ permissions:
   contents: read
 
 jobs:
-  Anchore-Scan:
-    permissions:
-      contents: read # for actions/checkout to fetch code
-      security-events: write # for github/codeql-action/upload-sarif to upload SARIF results
-      actions: read # only required for a private repository by github/codeql-action/upload-sarif to get the Action run status 
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout the code
-      uses: actions/checkout@v5
-      
-    - name: Pull the Docker image
-      run: docker pull ${{ secrets.DOCKERHUB_USERNAME }}/port-forward
-      
-    - name: Run the Anchore scan action itself with GitHub Advanced Security code scanning integration enabled
-      uses: anchore/scan-action@v6
-      with:
-        image: "${{ secrets.DOCKERHUB_USERNAME }}/port-forward"
-        acs-report-enable: true
-        fail-build: false
-        
-    - name: Upload Anchore Scan Report
-      uses: github/codeql-action/upload-sarif@v3
-      with:
-        sarif_file: ${{ steps.scan.outputs.sarif }}
-
-
   Trivy-Scan:
     permissions:
       contents: read # for actions/checkout to fetch code
@@ -81,3 +55,29 @@ jobs:
         uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: 'trivy-results.sarif'
+
+
+#  Anchore-Scan:
+#    permissions:
+#      contents: read # for actions/checkout to fetch code
+#      security-events: write # for github/codeql-action/upload-sarif to upload SARIF results
+#      actions: read # only required for a private repository by github/codeql-action/upload-sarif to get the Action run status 
+#    runs-on: ubuntu-latest
+#    steps:
+#    - name: Checkout the code
+#      uses: actions/checkout@v5
+#      
+#    - name: Pull the Docker image
+#      run: docker pull ${{ secrets.DOCKERHUB_USERNAME }}/port-forward
+#      
+#    - name: Run the Anchore scan action itself with GitHub Advanced Security code scanning integration enabled
+#      uses: anchore/scan-action@v6
+#      with:
+#        image: "${{ secrets.DOCKERHUB_USERNAME }}/port-forward"
+#        acs-report-enable: true
+#        fail-build: false
+#        
+#    - name: Upload Anchore Scan Report
+#      uses: github/codeql-action/upload-sarif@v3
+#      with:
+#        sarif_file: ${{ steps.scan.outputs.sarif }}
