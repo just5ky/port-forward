@@ -52,7 +52,7 @@ jobs:
     - name: Upload Anchore Scan Report
       uses: github/codeql-action/upload-sarif@v3
       with:
-        sarif_file: results.sarif
+        sarif_file: ${{ steps.scan.outputs.sarif }}
 
 
   Trivy-Scan:
