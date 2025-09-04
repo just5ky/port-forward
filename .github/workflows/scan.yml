@@ -43,7 +43,7 @@ jobs:
         run: docker pull ${{ secrets.DOCKERHUB_USERNAME }}/port-forward
 
       - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@0.33.0
+        uses: aquasecurity/trivy-action@0.33.1
         with:
           image-ref: '${{ secrets.DOCKERHUB_USERNAME }}/port-forward'
           format: 'template'
